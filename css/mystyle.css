@@ -1,0 +1,235 @@
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing:border-box; 
+	}
+
+	
+	body{
+		font-family:"Rockwell", monospace;
+		background: #d4feff;
+	}
+
+	header, nav, aside, #titulo1, section, article, footer {
+		display: block;
+		text-align: center;
+	}
+
+	div{
+		width: auto;
+		background: #d4feff;
+		margin: auto ;
+	}
+
+
+	header, .logo {
+		display: block;
+	}
+
+	header {
+		background: #301551;
+		text-align: center;
+	}
+
+	.banner{
+		height: 400px;
+	}
+
+	#barra{
+		background: #f7d914;
+		position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
+	}
+
+	#barra li{
+		background: #f7d914;
+		list-style: none;
+		margin: 10px;
+		padding: 5px;
+		font-weight: bold;
+		font-size: 20px;
+		display: inline-block;
+		position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
+	}
+
+	.column1 {
+        float: left;
+        width: 60%;
+        padding-top: 10px;
+            }
+
+    .column2 {
+        float: right;
+        width: 35%;
+        text-align: justify;
+        padding-top: 10px;
+        padding-right: 20px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 55px;
+    }
+
+    .column3 {
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-left: 20px;
+        width: 60%;
+        float: left;
+    } 
+
+    .column4 {
+    	padding-top: 10px;
+        padding-left: 20px;
+        width: 48%;
+        float: left;
+    }
+
+    .column5{
+    	padding-top: 10px;
+        padding-right: 20px;
+        width: 48%;
+        float: right;
+    }
+
+	section {
+		margin-top: 20px;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		margin-left: 10px;
+	}
+
+	article{
+		background: #C7F1FF;
+		margin-top: 10px;
+	}
+
+	#titulo1{
+		font-size: 30px;
+		color: black;
+	}
+
+	#sub1{
+		font-size: 20px;
+		color: lightgray;
+		font-style: italic;
+		font-weight: lighter;
+		text-align: center;
+	}
+
+	#sub2{
+		font-size: 20px; 
+	}
+
+	#pais{
+		font-size: 25px;
+		color: #f7d914;
+		background: #2f0364;
+	}
+
+	h2{
+		font-size: 18px;
+		padding: 2px;
+	}
+
+	p{
+		font-size: 15px;
+		text-align: justify;
+		padding: 10px;
+	}
+
+	.foto1{
+		display: block;
+		margin-left: auto;
+  		margin-right: auto;
+		max-width:100%;
+		max-height: 75%;
+		box-sizing:border-box;
+	}
+
+	.foto2{
+		display: block;
+		margin-left: auto;
+  		margin-right: auto;
+		max-width:75%;
+		max-height: 75%;
+		box-sizing:border-box;
+	}
+
+	.foto3 {
+
+		display: block;
+		margin-left: auto;
+  		margin-right: auto;
+		max-width:70%;
+		max-height: 70%;
+		border: solid 5px #301551;
+		box-sizing:border-box;
+	}
+
+	.xarxa{
+		margin-left: auto;
+  		margin-right: auto;
+  		width: 20px;
+	}
+
+	.social li{
+		list-style: none;
+		max-width:70%;
+		padding: 5px;
+		display: inline-block;
+	}
+
+	#spoty{
+		width:70%;
+		height:80px;
+		margin-top: 5%;
+	}
+
+	#spotyabba{
+		width:70%;
+		height:80px;
+		margin-top: 5%;
+	}
+
+	#artspoty{
+		background: #C7F1FF;
+		margin-top: 10px;
+		height: 10%;
+	}
+
+	footer {
+		background: #F8F8F8;
+		font-size: 15px;
+		clear: both;
+		position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
+	}
+
+
+	a:link {
+	  color: #2f0364;
+	}
+
+	a:visited {
+	  color: ;
+	}
+
+	a:hover {
+  	  color: #2f0364;
+	}
+
+	a:link {
+  	  text-decoration: none;
+	}
+
+	a:visited {
+      text-decoration: none;
+    }
+
+
+
+	
