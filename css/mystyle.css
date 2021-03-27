@@ -58,7 +58,8 @@
 	.column1 {
         float: left;
         width: 60%;
-        padding-top: 10px;
+        padding-top: 10px
+        margin-left: 10px;
             }
 
     .column2 {
@@ -69,7 +70,7 @@
         padding-right: 20px;
         position: -webkit-sticky;
         position: sticky;
-        top: 55px;
+        top: 10px;
     }
 
     .column3 {
@@ -104,6 +105,7 @@
 	article{
 		background: #C7F1FF;
 		margin-top: 10px;
+		margin-left: 20px;
 	}
 
 	#titulo1{
@@ -132,6 +134,7 @@
 	h2{
 		font-size: 18px;
 		padding: 2px;
+		text-align: center;
 	}
 
 	p{
@@ -140,12 +143,18 @@
 		padding: 10px;
 	}
 
+	#intro{
+		font-size: 20px;
+		text-align: justify;
+		padding: 10px;
+	}
+
 	.foto1{
 		display: block;
 		margin-left: auto;
   		margin-right: auto;
-		max-width:100%;
-		max-height: 75%;
+		max-width: 70%;
+		max-height: 70%;
 		box-sizing:border-box;
 	}
 
@@ -153,8 +162,8 @@
 		display: block;
 		margin-left: auto;
   		margin-right: auto;
-		max-width:75%;
-		max-height: 75%;
+		max-width:100%;
+		max-height:100%;
 		box-sizing:border-box;
 	}
 
@@ -179,6 +188,7 @@
 		list-style: none;
 		max-width:70%;
 		padding: 5px;
+		padding-bottom: 5px;
 		display: inline-block;
 	}
 
@@ -200,6 +210,10 @@
 		height: 10%;
 	}
 
+	.twitter{
+		padding-top: 8px;
+	}
+
 	footer {
 		background: #F8F8F8;
 		font-size: 15px;
@@ -208,7 +222,6 @@
         position: sticky;
         top: 0px;
 	}
-
 
 	a:link {
 	  color: #2f0364;
