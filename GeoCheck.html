@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>GeoCheck</title>   
+<head>
+      <meta charset="utf-8" />
+      <title>EuroSongs: Music without Boundaries</title>
+      <meta name="description" content="This is a webpage to discover new things about the Eurovison Song Contest and the world that envolves it." /> 
+      <link rel="stylesheet" href="css/mystyle.css">
+<style>
+  #map {
+    height: 600px;
+    width: 800px;
+  }
+</style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+   </head>
+</head>
+
+<body>
+<div>
+       <header>
+         <img class="banner" src="logo/banner.png">
+       </header>
+       
+       <nav id="barra">
+         <ul>
+               <li> <a href="index.html"> Home</a> </li>
+               <li> <a href="news.html"> News </a> </li>
+               <li> <a href= "songs.html"> Top 12 </a> </li>
+               <li> <a href= "hostcities.html"> Host Cities </a> </li>
+               <li> <a href= "GeoCheck.html"> GeoCheck </a> </li>
+               <li> <a href="aboutme.html"> About Me </a> </li>
+         </ul>
+       </nav>
+      </div>
+		<h1 id="titulo1"> GeoCheck</h1>
+        <h2 id="sub1">Check the Eurovision Countries Info! </h2>
+
+Type the City and Country name <input type="text" id="text_cp">
+<br />
+How many you want to check: <input type="text" id="text_resultats">
+
+
+<input type="button" value="Click" id="the_button">
+<table id="taula-cps">
+	<thead>
+		<tr>
+			<th>Country</th>
+			<th>Region</th>
+			<th>Fly to</th>
+		</tr>
+	</thead>
+	<tbody id="dades-taula">
+	<tr>
+		<td>country name</td>
+		<td>lenguage</td>
+	</tr>
+</tbody>
+</table>
+
+<br />
+<br />
+
+<div id="map"></div>
+
+<script>
+
+	var map = L.map("map", {center: [48.019380, 16.335241], zoom: 4});
+
+
+      L.tileLayer(
+          "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
+          {attribution: '&copy; <a href="http://' + 
+          'www.openstreetmap.org/copyright">OpenStreetMap</a>'}
+      ).addTo(map);
+
+
+	function pintar_latitud (latitud, longitud) {
+		map.flyTo([latitud, longitud],12)
+	}
+
+	function posar_pin (latitud, longitud, cp) {
+		L.marker([latitud, longitud]).addTo(map)
+   			.bindPopup(cp);
+    		
+		
+	}
+</script>
+<script>
+
+	document
+	.getElementById("the_button")
+	.addEventListener("click",() => {
+		var cp = document.getElementById("text_cp").value;
+
+		var nresultats = document.getElementById("text_resultats").value;
+
+		var url = 'http://api.geonames.org/postalCodeSearchJSON?placename='+cp+'&maxRows='+nresultats+'&username=markmeh_';
+
+		console.log(url);
+
+		fetch(url)
+		.then(resposta => resposta.json())
+		.then(json => {
+
+			html = "";
+			json.postalCodes.forEach( function(element){
+
+    				html += "<tr>";
+					html += "		<td>"+element.countryCode+"</td>";
+					html += "		<td>"+element.adminName1+"</td>";
+					html += '		<td> <input value="Fly" type="button" onClick="pintar_latitud('+element.lat+','+element.lng+');"=> </td>';
+					html += '	</tr>';
+
+				posar_pin(element.lat, element.lng, element.postalCode);
+    			});
+
+			
+
+    		document
+      		.getElementById("dades-taula")
+      		.innerHTML = html;
+  
+ 	 })
+  
+	.catch(error => console.log(error));
+});
+
+</script>
+
+</body>
+</html>
