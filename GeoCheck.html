@@ -6,16 +6,10 @@
       <title>EuroSongs: Music without Boundaries</title>
       <meta name="description" content="This is a webpage to discover new things about the Eurovison Song Contest and the world that envolves it." /> 
       <link rel="stylesheet" href="css/mystyle.css">
-<style>
-  #map {
-    height: 600px;
-    width: 800px;
-  }
-</style>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-   </head>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -30,32 +24,35 @@
                <li> <a href="news.html"> News </a> </li>
                <li> <a href= "songs.html"> Top 12 </a> </li>
                <li> <a href= "hostcities.html"> Host Cities </a> </li>
-               <li> <a href= "GeoCheck.html"> GeoCheck </a> </li>
+               <li> <a href= "GeoCheck.html"> ArtistChecker </a> </li>
                <li> <a href="aboutme.html"> About Me </a> </li>
          </ul>
        </nav>
       </div>
-		<h1 id="titulo1"> GeoCheck</h1>
-        <h2 id="sub1">Check the Eurovision Countries Info! </h2>
+		<h1 id="titulo1"> Artist Checker</h1>
+        <h2 id="sub1">Check the Eurovision Artists Info!</h2>
 
-Type the City and Country name <input type="text" id="text_cp">
+Type the Artist name <input type="text" id="text_cp">
 <br />
-How many you want to check: <input type="text" id="text_resultats">
-
 
 <input type="button" value="Click" id="the_button">
 <table id="taula-cps">
 	<thead>
 		<tr>
+			<th>Artist Name</th>
+			<th>Formed Year</th>
 			<th>Country</th>
-			<th>Region</th>
-			<th>Fly to</th>
+			<th>Genre</th>
+			<th>Label</th>
 		</tr>
 	</thead>
 	<tbody id="dades-taula">
 	<tr>
-		<td>country name</td>
-		<td>lenguage</td>
+		<td id="artist">-</td>
+		<td id="year">-</td>
+		<td id="country">-</td>
+		<td id="genre">-</td>
+		<td id="label">-</td>
 	</tr>
 </tbody>
 </table>
@@ -63,31 +60,6 @@ How many you want to check: <input type="text" id="text_resultats">
 <br />
 <br />
 
-<div id="map"></div>
-
-<script>
-
-	var map = L.map("map", {center: [48.019380, 16.335241], zoom: 4});
-
-
-      L.tileLayer(
-          "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
-          {attribution: '&copy; <a href="http://' + 
-          'www.openstreetmap.org/copyright">OpenStreetMap</a>'}
-      ).addTo(map);
-
-
-	function pintar_latitud (latitud, longitud) {
-		map.flyTo([latitud, longitud],12)
-	}
-
-	function posar_pin (latitud, longitud, cp) {
-		L.marker([latitud, longitud]).addTo(map)
-   			.bindPopup(cp);
-    		
-		
-	}
-</script>
 <script>
 
 	document
@@ -95,9 +67,7 @@ How many you want to check: <input type="text" id="text_resultats">
 	.addEventListener("click",() => {
 		var cp = document.getElementById("text_cp").value;
 
-		var nresultats = document.getElementById("text_resultats").value;
-
-		var url = 'http://api.geonames.org/postalCodeSearchJSON?placename='+cp+'&maxRows='+nresultats+'&username=markmeh_';
+		var url = 'https://www.theaudiodb.com/api/v1/json/1/search.php?s='+cp+'';
 
 		console.log(url);
 
@@ -105,27 +75,29 @@ How many you want to check: <input type="text" id="text_resultats">
 		.then(resposta => resposta.json())
 		.then(json => {
 
-			html = "";
-			json.postalCodes.forEach( function(element){
+			console.log(json);
+			console.log(cp)
+			json.artists.forEach(obj =>{
+				$("#artist").html(obj.strArtist);
+				$("#year").html(obj.intFormedYear);
+				$("#country").html(obj.strCountry);
+				$("#genre").html(obj.strGenre);
+				$("#label").html(obj.strLabel);
 
-    				html += "<tr>";
-					html += "		<td>"+element.countryCode+"</td>";
-					html += "		<td>"+element.adminName1+"</td>";
-					html += '		<td> <input value="Fly" type="button" onClick="pintar_latitud('+element.lat+','+element.lng+');"=> </td>';
-					html += '	</tr>';
-
-				posar_pin(element.lat, element.lng, element.postalCode);
+				///$tr.append($strArtist).append($intFormedYear).append($strCountry).append($strGenre);
+				///$tbody.append($tr);
+			console.log(obj.strArtist);
+			console.log(obj.intFormedYear);
+			console.log(obj.strCountry);
+			console.log(obj.strGenre);
+			console.log(obj.strLabel);
     			});
 
-			
-
-    		document
-      		.getElementById("dades-taula")
-      		.innerHTML = html;
   
  	 })
   
 	.catch(error => console.log(error));
+
 });
 
 </script>
