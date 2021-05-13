@@ -95,6 +95,11 @@
         float: right;
     }
 
+    #mapa {
+    	width: 90%;
+    	height: 90%;
+    }
+
 	section {
 		margin-top: 20px;
 		margin-bottom: 10px;
