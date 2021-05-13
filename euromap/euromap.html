@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css">
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/Countries_2.js"></script>
+        <script src="data/Venues_3.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:18, minZoom:1
+        }).fitBounds([[41.61751453641124,-12.586889901166744],[58.813005936920604,41.96283019076138]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_ESRIGray_0');
+        map.getPane('pane_ESRIGray_0').style.zIndex = 400;
+        var layer_ESRIGray_0 = L.tileLayer('http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+            pane: 'pane_ESRIGray_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 18,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_ESRIGray_0;
+        map.addLayer(layer_ESRIGray_0);
+        map.createPane('pane_GoogleMaps_1');
+        map.getPane('pane_GoogleMaps_1').style.zIndex = 401;
+        var layer_GoogleMaps_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleMaps_1',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 18,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_GoogleMaps_1;
+        map.addLayer(layer_GoogleMaps_1);
+        function pop_Countries_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>COUNTRY</strong><br />' + (feature.properties['COUNTRY'] !== null ? autolinker.link(feature.properties['COUNTRY'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr style="center">\
+                        <td colspan="2"><strong>SINGER(S)</strong><br />' + (feature.properties['SINGER(S)'] !== null ? '<img src="images/' + String(feature.properties['SINGER(S)']).replace(/[\\\/:]/g, '_').trim() + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">WINS:</th>\
+                        <td>' + (feature.properties['WINS:'] !== null ? autolinker.link(feature.properties['WINS:'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">YEAR:</th>\
+                        <td>' + (feature.properties['YEAR:'] !== null ? autolinker.link(feature.properties['YEAR:'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PARTICIPATING IN 2021?</th>\
+                        <td>' + (feature.properties['PARTICIPATING IN 2021?'] !== null ? autolinker.link(feature.properties['PARTICIPATING IN 2021?'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SONG IN 2021</th>\
+                        <td>' + (feature.properties['SONG IN 2021'] !== null ? autolinker.link(feature.properties['SONG IN 2021'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ELECTION TYPE:</th>\
+                        <td>' + (feature.properties['ELECTION TYPE:'] !== null ? autolinker.link(feature.properties['ELECTION TYPE:'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Countries_2_0(feature) {
+            switch(String(feature.properties['WINS:'])) {
+                case '0':
+                    return {
+                pane: 'pane_Countries_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,0,70,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '1':
+                    return {
+                pane: 'pane_Countries_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,9,136,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '2':
+                    return {
+                pane: 'pane_Countries_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(39,47,202,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '3':
+                    return {
+                pane: 'pane_Countries_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(95,108,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '4':
+                    return {
+                pane: 'pane_Countries_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(187,195,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '5':
+                    return {
+                pane: 'pane_Countries_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(205,127,50,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '6':
+                    return {
+                pane: 'pane_Countries_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(192,192,192,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '7':
+                    return {
+                pane: 'pane_Countries_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(218,187,31,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Countries_2');
+        map.getPane('pane_Countries_2').style.zIndex = 402;
+        map.getPane('pane_Countries_2').style['mix-blend-mode'] = 'normal';
+        var layer_Countries_2 = new L.geoJson(json_Countries_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Countries_2',
+            layerName: 'layer_Countries_2',
+            pane: 'pane_Countries_2',
+            onEachFeature: pop_Countries_2,
+            style: style_Countries_2_0,
+        });
+        bounds_group.addLayer(layer_Countries_2);
+        map.addLayer(layer_Countries_2);
+        function pop_Venues_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>VENUE_</strong><br />' + (feature.properties['VENUE_'] !== null ? autolinker.link(feature.properties['VENUE_'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CITY</th>\
+                        <td>' + (feature.properties['CITY'] !== null ? autolinker.link(feature.properties['CITY'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">YEAR HOSTED</th>\
+                        <td>' + (feature.properties['YEAR HOSTED'] !== null ? autolinker.link(feature.properties['YEAR HOSTED'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">WINING COUNTRY</th>\
+                        <td>' + (feature.properties['WINING COUNTRY'] !== null ? autolinker.link(feature.properties['WINING COUNTRY'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">WINNING SONG</th>\
+                        <td>' + (feature.properties['WINNING SONG'] !== null ? autolinker.link(feature.properties['WINNING SONG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Venues_3_0() {
+            return {
+                pane: 'pane_Venues_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/euroheart2.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Venues_3');
+        map.getPane('pane_Venues_3').style.zIndex = 403;
+        map.getPane('pane_Venues_3').style['mix-blend-mode'] = 'normal';
+        var layer_Venues_3 = new L.geoJson(json_Venues_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Venues_3',
+            layerName: 'layer_Venues_3',
+            pane: 'pane_Venues_3',
+            onEachFeature: pop_Venues_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Venues_3_0(feature));
+            },
+        });
+        var cluster_Venues_3 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_Venues_3.addLayer(layer_Venues_3);
+
+        bounds_group.addLayer(layer_Venues_3);
+        cluster_Venues_3.addTo(map);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/Venues_3.png" /> Venues': cluster_Venues_3,'Countries<br /><table><tr><td style="text-align: center;"><img src="legend/Countries_2_Novictories0.png" /></td><td>No victories</td></tr><tr><td style="text-align: center;"><img src="legend/Countries_2_Onevictory1.png" /></td><td>One victory</td></tr><tr><td style="text-align: center;"><img src="legend/Countries_2_Twovictories2.png" /></td><td>Two victories</td></tr><tr><td style="text-align: center;"><img src="legend/Countries_2_Threevictories3.png" /></td><td>Three victories</td></tr><tr><td style="text-align: center;"><img src="legend/Countries_2_Fourvictories4.png" /></td><td>Four victories</td></tr><tr><td style="text-align: center;"><img src="legend/Countries_2_Fivevictories5.png" /></td><td>Five victories</td></tr><tr><td style="text-align: center;"><img src="legend/Countries_2_Sixvictories6.png" /></td><td>Six victories</td></tr><tr><td style="text-align: center;"><img src="legend/Countries_2_Sevenvictories7.png" /></td><td>Seven victories</td></tr></table>': layer_Countries_2,"Google Maps": layer_GoogleMaps_1,"ESRI Gray": layer_ESRIGray_0,}).addTo(map);
+        setBounds();
+        map.addControl(new L.Control.Search({
+            layer: cluster_Countries_2,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'COUNTRY'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        </script>
+    </body>
+</html>
