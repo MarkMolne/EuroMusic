@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>EuroSongs: Music without Boundaries</title>
+      <meta name="description" content="This is a webpage to discover new things about the Eurovison Song Contest and the world that envolves it." /> 
+      <link rel="stylesheet" href="css/mystyle.css">
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+        <script>mermaid.flowchartConfig = {width: 100%}</script>
+   </head>
+
+   <body>
+      <div>
+       <header>
+         <img class="banner" src="logo/banner.png">
+       </header>
+       
+       <nav id="barra">
+         <ul>
+               <li> <a href= "index.html"> Home</a> </li>
+               <li> <a href= "news.html"> News </a> </li>
+               <li> <a href= "songs.html"> Top 12 </a> </li>
+               <li> <a href= "hostcities.html"> Host Cities </a> </li>
+               <li> <a href= "GeoCheck.html"> Artist Checker </a> </li>
+               <li> <a href= "winnerchart.html"> EuroMap </a> </li>
+               <li> <a href= "esc2019.html"> ESC 2019 </a> </li>
+               <li> <a href= "aboutme.html"> About Me </a> </li>
+         </ul>
+       </nav>
+      </div>
+
+      <h1 id="titulo1"> The 2019 Contest</h1>
+      <h2 id="sub1">Check how the ESC2019 went</h2>
+      <br>
+      <p id="intro" style="text-align: center;">Check with this diagram and table how the countries classified during the semifinals and the ranked countries in the final!</p>
+      <br>
+
+    <div style=" margin: 0 auto;">
+      <div class = "mermaid">
+         graph LR
+          A[Eurovision Song Contest 2019] -->|Live from Tel-Aviv| B{3 Grand Shows}
+          B:::C2 -->|SemiFinal 1| D[20 countries, 10 finalists]
+          B -->|Big 5 + Host Country| E[France, Germany, Italy, Spain, United Kingdom, Israel ]
+          B -->|SemiFinal 2| F[20 countries, 10 finalists]
+          D:::C1 --> G
+          E:::C1 --> G
+          F:::C1 --> G
+          G{Grand Finale} -->|One Winner| H(The Netherlands)
+          G:::C3
+          H:::C4
+          A:::C5
+
+          classDef C2 fill:#7e79e8
+          classDef C2 stroke:#7e79e8
+          classDef C3 fill:#ff8fc7
+          classDef C3 stroke:#ff8fc7
+          classDef C1 stroke:#fcfbb3
+          classDef C1 fill:#fcfbb3
+          classDef C4 stroke:#ffdb4d
+          classDef C4 fill:#ffdb4d
+          classDef C5 stroke:#5260ff
+          classDef C5 fill:#5260ff
+      </div>
+    </div>
+
+  <style type="text/css">
+  table.tableizer-table {
+    font-size: 20px;
+    border: 2px solid #000000; 
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    column-span: 4;
+  } 
+  .tableizer-table td {
+    padding: 4px;
+    margin: 3px;
+    border: 1px solid #000000;
+    background: #ffffff;
+    text-align: center;
+  }
+  .tableizer-table th {
+    background-color: #301551; 
+    color: #f7d914;
+    font-weight: bold;
+  }
+</style>
+<div style=" position: center;">
+<table class="tableizer-table">
+<thead>
+<tr class="tableizer-firstrow">
+  <th>Classified 1st Semifinal</th>
+  <th>Classified 2nd Semifinal</th>
+</tr></thead>
+<tbody>
+ <tr>
+  <td style="background: gold;">Australia</td>
+  <td style="background: gold;">The Netherlands</td>
+</tr>
+<tr>
+  <td style="background: silver;" >Czech Republic</td>
+  <td style="background: silver;">North Macedonia</td>
+</tr>
+<tr>
+  <td style="background: brown;">Iceland</td>
+  <td style="background: brown;">Sweden</td>
+</tr>
+<tr>
+  <td>Estonia</td>
+  <td>Switzerland</td>
+</tr>
+<tr>
+  <td>Greece</td>
+  <td>Azerbaijan</td>
+</tr>
+<tr>
+  <td>Slovenia</td>
+  <td>Russia</td>
+</tr>
+<tr>
+  <td>Serbia</td>
+  <td>Norway</td>
+</tr>
+<tr>
+  <td>San Marino</td>
+  <td>Malta</td>
+</tr>
+<tr>
+  <td>Cyprus</td>
+  <td>Albania</td>
+</tr>
+<tr>
+  <td>Belarus</td>
+  <td>Denmark</td>
+</tr>
+</div>
+</tbody></table>
+
+<table class="tableizer-table">
+<thead>
+  <tr class="tableizer-firstrow">
+    <th>Country</th>
+    <th>Points</th>
+    <th>Place</th>
+  </tr>
+</thead>
+<tbody>
+ <tr><td style="background: gold;">The Netherlands</td><td style="background: gold;">498</td><td style="background: gold;">Winner</td></tr>
+ <tr><td style="background: silver;">Italy</td><td style="background: silver;">472</td><td style="background: silver;">Runner Up</td></tr>
+ <tr><td style="background: brown;">Russia</td><td style="background: brown;">370</td><td style="background: brown;">3rd</td></tr>
+ <tr><td>Switzerland</td><td>364</td><td>4th</td></tr>
+ <tr><td>Sweden</td><td>334</td><td>5th</td></tr>
+ <tr><td>Norway</td><td>331</td><td>6th</td></tr>
+ <tr><td>North Macedonia</td><td>305</td><td>7th</td></tr>
+ <tr><td>Azerbaijan</td><td>302</td><td>8th</td></tr>
+ <tr><td>Australia</td><td>284</td><td>9th</td></tr>
+ <tr><td>Iceland</td><td>232</td><td>10th</td></tr>
+ <tr><td>Czech Republic</td><td>157</td><td>11th</td></tr>
+ <tr><td>Denmark</td><td>120</td><td>12th</td></tr>
+ <tr><td>Cyprus</td><td>109</td><td>13th</td></tr>
+ <tr><td>Malta</td><td>107</td><td>14th</td></tr>
+ <tr><td>Slovenia</td><td>105</td><td>15th</td></tr>
+ <tr><td>France</td><td>105</td><td>16th</td></tr>
+ <tr><td>Albania</td><td>90</td><td>17th</td></tr>
+ <tr><td>Serbia</td><td>89</td><td>18th</td></tr>
+ <tr><td>San Marino</td><td>77</td><td>19th</td></tr>
+ <tr><td>Estonia</td><td>76</td><td>20th</td></tr>
+ <tr><td>Greece</td><td>74</td><td>21st</td></tr>
+ <tr><td>Spain</td><td>54</td><td>22nd</td></tr>
+ <tr><td>Israel</td><td>35</td><td>23rd</td></tr>
+ <tr><td>Belarus</td><td>31</td><td>24th</td></tr>
+ <tr><td>Germany</td><td>24</td><td>25th</td></tr>
+ <tr><td>United Kingdom</td><td>11</td><td>26th</td></tr>
+</tbody></table>
+
+      <div>
+       <footer>
+          © Molné Marc, 2021 / All Rights Reserved
+       </footer>
+      </div>
+    </body>
+    </html>
