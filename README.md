@@ -69,3 +69,8 @@ Totes aquestes tasques s'han elaborat a patir del programari de QGIS amb el comp
 Alhora de penjaro al repositori l'unic canvi que s'ha realitzat ha estat la substitució del enllaç local pel del repositori que consta amb el nom_de_la_carpeta/nom_de_arxiu.html
 
 Es pot veure el resultat del mapa final fent [click aquí](https://markmolne.github.io/EuroMusic/winnerchart.html)
+
+## Conclusions del treball i fets a millorar de la pàgina web
+Elaborar aquesta pàgina web ha estat un repte personal el qual ha suposat molt de esforç en la busqueda de material per a poder completar la pàgina web completa. El més complicat va ser començar des de 0 l'inici de la pàgina però alhora es satisfactori veure com poc a poc pren la forma que desitjes. 
+Un fet a millorar ha de ser el responsive de certes seccions de la web, i igual actualitzar una mica el disseny a que sigui més "modern". Encara així resto molt satisfet de la feina realitzada.
+
