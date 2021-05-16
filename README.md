@@ -28,7 +28,11 @@ La API es va elaborar a partir de la base de dades de [AudioBD](https://www.thea
 ## Metodologia per elaborar la cartografia
 Per elaborar la cartografia es van seguir els següents passos:
 1. Discriminar, de la capa de paisos europeus, tots aquells que no han participat en el Festival.
-2. Realitzar un joint amb les dades de cada pais sobre el nombre de victories i els anys en que van guanyar.
+2. Realitzar un joint amb les dades de cada pais sobre el nombre de victories i els anys en que van guanyar alhora que una fotografia del representant de cada pais en el 2021.
 3. Representar el mapa mitjançant un esquema de colors on el pais amb més victories reb un color daurat, el segons es representat en color plata, el tercer color bronze i la resta juguen amb una escala de blaus.
 4. Pel que fa a la capa de punts, que son els indrets on s'ha realitzat el Festival, al no trobar cap capa ja realitzada, es va digitalitzar de manera manual tots els teatres i estadis on s'ha duut a terme.
 5. Es va afegir un SVG personalitzat per a representar els punts. 
+6. Fer un joint amb les dades que es volien representar
+7. Alhora d'exportar es va decidir les dades que es volien representar en el PopUp, una llegenda desplegable on es poden activar o desactivar les diverses capes del mapa i la realització de clusters de punts per a una correcta visualització d'aquestos.
+
+Es pot veure el resultat del mapa final fent [click aquí](https://markmolne.github.io/EuroMusic/winnerchart.html)
