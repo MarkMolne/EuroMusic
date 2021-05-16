@@ -25,6 +25,20 @@ Per tal de obtindre les dades s'han fet servir tres tipus de fonts principals
 La API es va elaborar a partir de la base de dades de [AudioBD](https://www.theaudiodb.com/)
 
 
+## Metogologia per a l'elaboració de la pàgina web
+Alhora de crear la pagina web es va seguir la següent metodologia:
+
+0. _Passos previs_ : Elaborar una layout en brut per a l'organització de les pàgines i quantes d'hauran de crear. Retallar imatges amb el mateix format i organitzar un esquema de colors. També es va crear un logo per a la pagina.
+1. _Creació de la pàgina principal_ : 
+   1. Creació del document HTML
+   2. Elaboració del Head
+   3. Inserció del Body amb el Banner, on hi trobem el logo, i la barra de navegació on es troben els       botons per anar a la resta de seccions de la web
+   4. Creació de dues columnes, la de l'esquerra amb la presentació de la pàgina web i una descripció del Festival, i la de la dreta amb les ultimes noticies. Tenen una miga del 60% i 35% respectivament
+   5. Elaboració d'un footer que serà comú en totes les pàgines
+2. _Creació del CSS_ :
+Mentre es creava la pàgina principal, es va elaborar també de manera paral·lela l'arxiu CSS que dona estil a tota la pàgina web. Es van introduir els estils de tots els diferents elements del HTML per a que coincidicin en estil totes les pàgines, com per exemple la mida de la lletra dels diferents apartats, la font de lletra, el tamany de les capceleres, la justificació del text, etc...
+3. 
+
 ## Metodologia per elaborar la cartografia
 Per elaborar la cartografia es van seguir els següents passos:
 1. Discriminar, de la capa de paisos europeus, tots aquells que no han participat en el Festival.
