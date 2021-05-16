@@ -47,7 +47,11 @@ Aquesta pàgina mostra un mapa elaborat amb llenguatge JS i realitzat a través 
 L'ultima pàgina, igual que la resta compta amb un banner i una barra de navegació. Compta amd dues columnes, una de principal amb una presentació personal i la justificació del projecte i a la columna dreta enllaços a les meves xarxes socials, una fotografia personal i un formulari per a posar-se en contacte en mi.
 
 
-##Metodologia per a l'elaboració del cercador amb una API
+## Metodologia en l'elaboració del motor de cerca amb una API
+Tal i com s'ha dit anteriorment, aquest motor de cerca està vinculat amb la base de dades de [AudioBD](https://www.theaudiodb.com/) el qual ens proporciona informació sobre diverses caracteristiques dels cantants o grups del que es realitza una busqueda. 
+En aquest cas s'ha creat una pàgina nova d'html i js i s'ha introduit la taula en format html i el JSON que proveia la API. 
+A partir d'un fetch s'ha indicat que es mostri certa informació cada cop que es busca l'artista, en aquest cas es mostra el nom, l'any de neixament de la carrera musical, el pais, el genere musical i la discografia.
+Tot queda tancat amb el mateix footer que la resta de pagines.
 
 
 
@@ -60,5 +64,8 @@ Per elaborar la cartografia es van seguir els següents passos:
 5. Es va afegir un SVG personalitzat per a representar els punts. 
 6. Fer un joint amb les dades que es volien representar
 7. Alhora d'exportar es va decidir les dades que es volien representar en el PopUp, una llegenda desplegable on es poden activar o desactivar les diverses capes del mapa i la realització de clusters de punts per a una correcta visualització d'aquestos.
+
+Totes aquestes tasques s'han elaborat a patir del programari de QGIS amb el complement de QGIS2WEB el qual ens ajudava a exportar el mapa i vincular-lo amb un iframe al html de la pagina dessitjada. 
+Alhora de penjaro al repositori l'unic canvi que s'ha realitzat ha estat la substitució del enllaç local pel del repositori que consta amb el nom_de_la_carpeta/nom_de_arxiu.html
 
 Es pot veure el resultat del mapa final fent [click aquí](https://markmolne.github.io/EuroMusic/winnerchart.html)
