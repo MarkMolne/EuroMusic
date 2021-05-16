@@ -4,7 +4,7 @@
 
 
 ## Els Objectius
-   Per a elaborar aquesta pàgina vaig establir uns objectius, que conjuntament amb els que els professors demanaven en les tramesses van estar els següents:
+Per a elaborar aquesta pàgina vaig establir uns objectius, que conjuntament amb els que els professors demanaven en les tramesses van estar els següents:
    1. Aprendre a fer servir els llenguatges de HTML, CSS i JS
    2. Entendre el funcionament del GIT, GITHUB i GITCola
    3. Saber elaborar cartografia mitjançant LeafLet
@@ -41,8 +41,14 @@ Mentre es creava la pàgina principal, es va elaborar també de manera paral·le
 Seguint l'estructura de totes les pàgines trobem una pagina de noticies amb una columna principal amb la redacció de noticies amb un titol, subtítol, imatge i redacció, i a la dreta un time-line de twitter amb un recopilatori de tuits sobre Eurovision. Acaba amb un footer.
 4. _Elaboració de la pagina del TOP12_:
 En aquesta pàgina ens trobem dues columnes d'igual mida amb 12 divisions que representen el meu top12 de cançons d'Eurovisión i dintre de cada divisió hi ha el títol de la cançó, el representatn i l'any, una explicació del perqué de la posició i un iframe d'Spotify que dona opció de escoltar 30 segons de la cançó. Al igual que les altres, acaba amb el footer.
-5. _Elaboració d'un mapa amb LeafLet_: 
-6. 
+5. _Elaboració d'un mapa amb LeafLet_:
+Aquesta pàgina mostra un mapa elaborat amb llenguatge JS i realitzat a través de LeafLet amb un total de 49 punts que mostren les 49 arenes on s'ha fet el Festival, posteriorment aquest mapa ha estat millorat tal i com es pot veure en l'apartat de _Metodologia per elaborar la cartografia_. 
+6. _Realització del about me_:
+L'ultima pàgina, igual que la resta compta amb un banner i una barra de navegació. Compta amd dues columnes, una de principal amb una presentació personal i la justificació del projecte i a la columna dreta enllaços a les meves xarxes socials, una fotografia personal i un formulari per a posar-se en contacte en mi.
+
+
+##Metodologia per a l'elaboració del cercador amb una API
+
 
 
 ## Metodologia per elaborar la cartografia
