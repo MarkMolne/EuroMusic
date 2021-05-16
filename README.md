@@ -37,7 +37,13 @@ Alhora de crear la pagina web es va seguir la següent metodologia:
    5. Elaboració d'un footer que serà comú en totes les pàgines
 2. _Creació del CSS_ :
 Mentre es creava la pàgina principal, es va elaborar també de manera paral·lela l'arxiu CSS que dona estil a tota la pàgina web. Es van introduir els estils de tots els diferents elements del HTML per a que coincidicin en estil totes les pàgines, com per exemple la mida de la lletra dels diferents apartats, la font de lletra, el tamany de les capceleres, la justificació del text, etc...
-3. 
+3. _Elaboració de la pagina de noticies_:
+Seguint l'estructura de totes les pàgines trobem una pagina de noticies amb una columna principal amb la redacció de noticies amb un titol, subtítol, imatge i redacció, i a la dreta un time-line de twitter amb un recopilatori de tuits sobre Eurovision. Acaba amb un footer.
+4. _Elaboració de la pagina del TOP12_:
+En aquesta pàgina ens trobem dues columnes d'igual mida amb 12 divisions que representen el meu top12 de cançons d'Eurovisión i dintre de cada divisió hi ha el títol de la cançó, el representatn i l'any, una explicació del perqué de la posició i un iframe d'Spotify que dona opció de escoltar 30 segons de la cançó. Al igual que les altres, acaba amb el footer.
+5. _Elaboració d'un mapa amb LeafLet_: 
+6. 
+
 
 ## Metodologia per elaborar la cartografia
 Per elaborar la cartografia es van seguir els següents passos:
