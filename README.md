@@ -5,11 +5,11 @@
 <details>
  <summary> Els objectius d'aquest treball: </summary>
   <p>Per a elaborar aquesta pàgina vaig establir uns objectius, que conjuntament amb els que els professors demanaven en les tramesses van estar els següents:
-  1. Aprendre a fer servir els llenguatges de HTML, CSS i JS
-  2. Entendre el funcionament del GIT, GITHUB i GITCola
-  3. Saber elaborar cartografia mitjançant LeafLet
-  4. Elaborar un cercador a partir d'una API
-  5. Apendre a introduir una cartografia elaborada en QGIS dintre d'una pàgina web</p>
+   1. Aprendre a fer servir els llenguatges de HTML, CSS i JS
+   2. Entendre el funcionament del GIT, GITHUB i GITCola
+   3. Saber elaborar cartografia mitjançant LeafLet
+   4. Elaborar un cercador a partir d'una API
+   5. Apendre a introduir una cartografia elaborada en QGIS dintre d'una pàgina web</p>
 </details>
 
 ## La temàtica
